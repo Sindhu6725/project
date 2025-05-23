@@ -10,7 +10,7 @@
         print("\n--- Student Information System ---")
         print("1. Add Student")
         print("2. Add Marks")
-        print("3. Display Student")
+        printurthebestweron("3. Display Student")
         print("4. Search Student by Name")
         print("5. Exit")
 
