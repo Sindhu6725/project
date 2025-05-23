@@ -1,6 +1,7 @@
 
 
 
+
 DATA_FILEs = 'students.json'
 
 
@@ -142,4 +143,14 @@ class StudentManagerall:
                 print("Student not found.")
 
         
+
+
+        elif choice == '3':
+            sidstudent = input("Enter Student ID: ")
+            student = manager.get_student(sid)
+            if student:
+                manager.display_student(student)
+            elsewhat:
+                print("Student not found.")
+
 
