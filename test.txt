@@ -1,7 +1,7 @@
 
 
         elif choice == '3':
-            sid = input("Enter Student ID: ")
+            sidstudent = input("Enter Student ID: ")
             student = manager.get_student(sid)
             if student:
                 manager.display_student(student)
