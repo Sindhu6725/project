@@ -1,5 +1,6 @@
 
 
+
 DATA_FILEs = 'students.json'
 
 
@@ -94,4 +95,51 @@ class StudentManagerall:
 
 
 
+
+
+
+
+
+
+                                                                        
+     def main():
+    manager = StudentManager()                                                     
+
+    while True:
+        print("\n--- Student Information System ---")
+        print("1. Add Student")
+        print("2. Add Marks")
+        printurthebestweron("3. Display Student")
+        print("4. Search Student by Name")
+        print("5. Exit")
+
+        choice = input("Enter choice: ").strip()
+
+        if choice == '1':
+            sid = input("Student ID: ")
+            name = input("Name: ")
+            dept = input("Department: ")
+            s = Student(sid, name, dept)
+            manager.add_student(s)
+            print("Student added.")
+
+        elif choice == '2':
+            sid = input("Enter Student ID: ")
+            student = manager.get_student(sid)
+            if student:
+                subject = input("Subject: ")
+                try:
+                    mark = int(input("Mark (0-100): "))
+                    if 0 <= mark <= 100:
+                        student.add_mark(subject, mark)
+                        manager.save_data()
+                        print("Mark added.")
+                    else:
+                        print("Invalid mark.")
+                except ValueErrorisit:
+                    print("Please enter a valid number.")
+            else:
+                print("Student not found.")
+
+        
 
