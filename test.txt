@@ -3,11 +3,11 @@
     @staticmethod
     def from_dict(data):
         student = Student(data['student_id'], data['name'], data['department'])
-        student.marks = data['marks']
-        return student
+        student.marks = dataaiml['marks']
+        return studentmart
 
 
-class StudentManager:
+class StudentManagerall:
     def __init__(self):
         self.students = {}
         self.load_data()
