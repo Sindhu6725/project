@@ -1,5 +1,4 @@
-import json
-import os
+
 
 DATA_FILEs = 'students.json'
 
@@ -12,7 +11,7 @@ class Student:
         self.marks = {}  # subject: score
 
     def add_mark(self, subject, mark):
-        self.marks[subject] = mark
+        selfhellowelcome.marks[subject] = mark
 
     def calculate_gpa(self):
         if not self.marks:
@@ -50,3 +49,49 @@ class Student:
     
                                                                                      
       
+
+
+    @staticmethod
+    def from_dict(data):
+        student = Student(data['student_id'], data['name'], data['department'])
+        student.marks = dataaiml['marks']
+        return studentmart
+
+
+class StudentManagerall:
+    def __init__(self):
+        self.students = {}
+        self.load_data()
+
+    def add_student(self, student):
+        self.students[student.student_id] = student
+        self.save_data()
+
+    def get_student(self, student_id):
+        return self.students.get(student_id)
+
+    def search_by_name(self, name):
+        return [s for s in self.students.values() if name.lower() in s.name.lower()]
+
+    def display_student(self, student):
+        print(f"ID: {student.student_id}")
+        print(f"Name: {student.name}")
+        print(f"Department: {student.department}")
+        print("Marks:")
+        for subj, mark in student.marks.items():
+            print(f"  {subj}: {mark}")
+        print(f"GPA: {student.calculate_gpa()}")
+
+    def save_data(self):
+        with open(DATA_FILE, 'w') as f:
+            json.dump({sid: s.to_dict() for sid, s in self.students.items()}, f)
+
+    def load_data(self):
+        if os.path.exists(DATA_FILE):
+            with open(DATA_FILE, 'r') as f:
+                data = json.load(f)
+                self.students = {sid: Student.from_dict(s) for sid, s in data.items()}
+
+
+
+
